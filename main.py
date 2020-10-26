@@ -13,6 +13,12 @@ mydatabase="db"
 
 con = pymysql.connect(host="localhost",user="root",password='',database='db')
 cur = con.cursor()
+cur.execute('create database if not exists db;')
+cur.execute('create table if not exists books(bid varchar(20) primary key, title varchar(30), author varchar(30), status varchar(30));')
+cur.execute('create table if not exists books_issued(bid varchar(20) primary key, issuedto varchar(30));')
+# create database db;
+# create table books(bid varchar(20) primary key, title varchar(30), author varchar(30), status varchar(30));
+# create table books_issued(bid varchar(20) primary key, issuedto varchar(30));
 
 root = Tk()
 root.title("Library")
